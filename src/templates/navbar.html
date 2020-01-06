@@ -1,0 +1,32 @@
+<title>My Vocab Words</title>
+
+<style>
+    .nav {
+        display: flex;
+        margin-left: auto;
+    }
+    .nav-button {
+        margin-left: 15px ;
+        border-radius: 3px ;
+        border: 1px solid #1B95E0 ;
+        background-color: #1B95E0 ;
+        color: white ;
+        height: 40px ;
+
+    }
+    .nav-button:hover {
+        background-color: white ;
+        border: 1px solid #1B95E0 ;
+        color: #1B95E0 ;
+    }
+    .nav-right-items {
+        display: flex ;
+    }
+</style>
+
+<div class="nav-right-items">
+    <div class="nav">
+        <button class="nav-button" onclick="location.href='{% url 'search_page' %}'">Search Word</button>
+        <button class="nav-button" onclick="location.href='{% url 'first_flashcard' %}'">My flashcards</button>
+    </div>
+</div>

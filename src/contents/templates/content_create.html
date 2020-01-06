@@ -1,0 +1,63 @@
+<head>
+{% include "navbar.html"%}
+    <style>
+        .title {
+            text-align: center;
+        }
+        .welcome-word {
+            margin-top: 20px;
+            margin-bottom: 90px;
+        }
+        .search{
+            margin-left: 40px;
+            color: #1B95E0;
+            font-family: Georgia;
+            font-size: 30px;
+        }
+        .input{
+            margin-top: 20px ;
+            background: transparent;
+            border: 2px solid lightblue;
+            border-radius: 6px ;
+            height: 30px ;
+            font-size: 16px ;
+            font-family: Georgia;
+            color: #1B95E1;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    {% if is_to_search == True %}
+    <div class="welcome-word">
+        <div style="font-size: 20px; color: #1B85E9; font-family:georgia ; font-style:italic ; " class="title">
+            Hello! Go and search any Arabic word!!!
+        </div>
+    </div>
+
+    <form method="POST" class="search"> {% csrf_token %}
+        <div >{{form.as_p}}</div>
+        <p>* double tap on 'search'</p>
+        <input class="input" id="myInput" onclick="location.href='{% url 'script' %}'"
+               onsubmit="location.href='{% url 'script' %}'" type="submit" placeholder="Search..." value="search">
+    </form>
+
+    {% else %}
+
+    <form method="POST"> {% csrf_token %}
+
+        <p>The definitions of the word '{{arabicWord}}' are: </p>
+        <li>{{def1}}</li>
+        <li>{{def2}}</li>
+        <li>{{def3}}</li>
+        <li>{{def4}}</li>
+        <li>{{def5}}</li>
+    </form>
+    <button onclick="location.href='{% url 'save' %}'">Save</button>
+
+
+    {% endif %}
+
+</body>

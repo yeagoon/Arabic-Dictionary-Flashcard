@@ -1,0 +1,7 @@
+
+
+{% for instance in object_list %}
+    {% if instance.id != x %}
+        <p>{{ instance.id }} -<a href="{{ instance.get_absolute_url }}">{{ instance.arabic_word }}</a></p>
+    {% endif %}
+{% endfor %}

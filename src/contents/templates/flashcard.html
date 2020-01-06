@@ -1,0 +1,70 @@
+<head>
+    {% include 'navbar.html' %}
+    <style>
+        .word {
+            margin-left: 20px ;
+            margin-top: 50px;
+            font-size: 35px;
+            font-family: Georgia;
+        }
+
+        .definitions {
+            margin-top: 50px;
+            font-family: Georgia;
+            font-size: 20px;
+            margin-left: 40px;
+        }
+
+        .next-button-frame {
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+        .prev-button-frame {
+            margin-top: 10px;
+            margin-left: 40px;
+        }
+
+        .next-button {
+            width: 55px;
+            height: 35px;
+        }
+
+        .prev-button {
+           width: 55px;
+           height: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            button-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="word"> Word Number {{object.id}}: {{ object.arabic_word }}</div>
+
+<div class="definitions">
+    <p>Meaning:</p>
+    {{object.definition1}}
+    {{object.definition2}}
+    {{object.definition3}}
+    {{object.definition4}}
+    {{object.definition5}}
+</div>
+
+<div class="buttons">
+    <div class="prev-button-frame">
+        <button class="prev-button"onclick="location.href='{% url 'flashcards_prev' %}'">prev</button>
+    </div>
+
+    <div class="next-button-frame">
+        <button class="next-button"onclick="location.href='{% url 'flashcards_next' %}'">next</button>
+    </div>
+</div>
+
+
+</body>
+</html>
